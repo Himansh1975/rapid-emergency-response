@@ -143,6 +143,16 @@ def head(title, desc, path, extra_ld):
 
 PHONE_SVG = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg>'
 
+def _nav():
+    svc = "".join(f'<a href="{s['slug']}">{s['name']}</a>' for s in SERVICES)
+    ar = "".join(f'<a href="{a['slug']}">{a['name']}</a>' for a in AREAS)
+    return (f'<div class="dd"><a href="/#services">Services</a><div class="dd-menu">{svc}</div></div>'
+            f'<div class="dd"><a href="/#areas">Areas</a><div class="dd-menu">{ar}</div></div>'
+            '<a href="/#about">About Ryan</a><a href="/#reviews">Reviews</a><a href="/#contact">Contact</a>')
+
+
+NAV = _nav()
+
 HEADER = f"""<header class="top">
   <div class="wrap">
     <a class="brand" href="/">
@@ -150,7 +160,7 @@ HEADER = f"""<header class="top">
       <div><b>Rapid</b><small>Emergency Response Plumbing</small></div>
     </a>
     <nav class="nav" aria-label="Main">
-      <a href="/#services">Services</a><a href="/#about">About Ryan</a><a href="/#reviews">Reviews</a><a href="/#areas">Areas</a><a href="/#contact">Contact</a>
+      {NAV}
     </nav>
     <a class="btn btn-red" href="tel:{PHONE_TEL}" aria-label="Call {PHONE}">{PHONE_SVG}<span>{PHONE}</span></a>
   </div>
