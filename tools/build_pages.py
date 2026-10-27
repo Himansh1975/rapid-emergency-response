@@ -49,15 +49,16 @@ AREAS = [
 SERVICES = [
     dict(slug="emergency-plumber", name="Emergency plumber", h1="Emergency plumber", img="van.webp",
          img_alt="Rapid Emergency Response Plumbing van",
-         title="Emergency Plumber Leeds & Batley | Rapid Emergency Response",
-         desc="Emergency plumber for Leeds, Batley, Morley, Pudsey, Drighlington and Calverley. Leaks, burst pipes and overflowing toilets. Call Ryan on 07543 599184.",
-         intro="Water coming through the ceiling, a burst pipe, or a toilet overflowing? Call Ryan on 07543 599184. He's a City & Guilds qualified plumber based in Batley, covering Leeds, Morley, Drighlington, Pudsey and Calverley.",
+         title="24/7 Emergency Plumber Leeds & Batley | Rapid Emergency Response",
+         desc="24/7 emergency plumber for Leeds, Batley, Morley, Pudsey, Drighlington and Calverley. Leaks, burst pipes and overflowing toilets. Call Ryan on 07543 599184.",
+         intro="Water coming through the ceiling, a burst pipe, or a toilet overflowing? Call Ryan on 07543 599184, day or night, weekends included. He's a City & Guilds qualified plumber based in Batley, covering Leeds, Morley, Drighlington, Pudsey and Calverley.",
          now=["Turn off your stopcock. It's usually under the kitchen sink, where the mains pipe comes in. Turn it clockwise until it stops.",
               "If water is near lights or sockets, switch off the electrics at the consumer unit and don't touch wet switches.",
               "Open your cold taps to drain the system and catch drips with buckets and towels.",
               "Take a photo or short video and send it on WhatsApp, so Ryan knows what he's walking into."],
          fixes=["Burst and frozen pipes", "Water leaking through ceilings", "Overflowing or blocked toilets", "Leaking tanks, cisterns and valves", "Stopcocks that won't turn off"],
-         faqs=[("What counts as a plumbing emergency?", "Anything where water is escaping and you can't stop it, water near electrics, a toilet that's blocked or overflowing when it's the only one in the house, or no water at all. If you're not sure, send a photo on WhatsApp and Ryan will tell you whether it's urgent."),
+         faqs=[("Do you come out at night and at weekends?", "Yes. Ryan takes emergency call-outs 24 hours a day, 7 days a week, including bank holidays. Call 07543 599184."),
+               ("What counts as a plumbing emergency?", "Anything where water is escaping and you can't stop it, water near electrics, a toilet that's blocked or overflowing when it's the only one in the house, or no water at all. If you're not sure, send a photo on WhatsApp and Ryan will tell you whether it's urgent."),
                ("How much does an emergency call-out cost?", "Ryan agrees the price with you before any work starts, so there are no surprises. Call and describe the problem, or send a photo, and he'll give you a clear price."),
                ("Do you do boiler or gas work?", "No. Ryan is a plumber, not a Gas Safe engineer, so boilers and gas appliances need a Gas Safe registered engineer.")]),
     dict(slug="leak-repair", name="Leak & burst pipe repair", h1="Leak & burst pipe repair", img="tap-fitting.webp",
@@ -207,6 +208,7 @@ def business_ld(area_names, page_url):
             "address": {"@type": "PostalAddress", "streetAddress": "South Bank Road", "addressLocality": "Batley",
                         "addressRegion": "West Yorkshire", "postalCode": "WF17", "addressCountry": "GB"},
             "areaServed": [{"@type": "Place", "name": n} for n in area_names],
+            "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], "opens": "00:00", "closes": "23:59"}],
             "mainEntityOfPage": page_url}
 
 
@@ -219,10 +221,11 @@ def crumbs_ld(name, path):
 def area_page(a):
     path, name = a["slug"], a["name"]
     title = f"Plumber in {name} {a['pc'] if name != 'Leeds' else ''} | Rapid Emergency Response".replace("  ", " ")
-    desc = f"Local plumber in {name}, {a['pc']}. Ryan Aubrey, City & Guilds qualified and DBS checked, fixes leaks, burst pipes, toilets and taps. Price agreed first. Call {PHONE}."
+    desc = f"24/7 local plumber in {name}, {a['pc']}. Ryan Aubrey, City & Guilds qualified and DBS checked, fixes leaks, burst pipes, toilets and taps. Price agreed first. Call {PHONE}."
     common = [("Do you cover " + p + "?", f"Yes. {p} is part of the {name} area Ryan covers as standard.") for p in a["places"][1:2]]
     faqs = common + [
         (f"How quickly can you get to {name}?", f"It depends on what Ryan is already working on, so call and he'll give you an honest time. {name} is a short drive from his base in Batley."),
+        ("Do you come out at night and at weekends?", f"Yes. Ryan takes emergency call-outs in {name} 24 hours a day, 7 days a week."),
         ("Is the price agreed before you start?", "Yes, always. Ryan explains what's wrong and agrees the price with you before any work starts."),
         ("Do you do boiler or gas work?", "No. Boilers and gas appliances need a Gas Safe registered engineer."),
     ]
@@ -236,7 +239,7 @@ def area_page(a):
     <div class="wrap two-col">
       <div class="prose">
         <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> › <a href="/#areas">Areas</a> › {name}</nav>
-        <span class="status">Taking emergency call-outs now</span>
+        <span class="status">Taking emergency call-outs now, 24/7</span>
         <h1>Plumber in <em>{name}</em></h1>
         <p class="lede">{escape(a['intro'])}</p>
         <p>{escape(a['extra'])}</p>
@@ -250,6 +253,7 @@ def area_page(a):
         <h2>Why {name} customers call Ryan</h2>
         <ul>
           <li>City &amp; Guilds NVQ Level 2 in plumbing, held since 2002 (certificate Q1027228)</li>
+          <li>Emergency call-outs 24/7, nights and weekends included</li>
           <li>DBS checked, August 2026</li>
           <li>Price agreed before any work starts</li>
           <li>You deal with Ryan directly, from the first call to the finished job</li>
