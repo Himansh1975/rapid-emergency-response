@@ -6,8 +6,12 @@ Live at https://rapidemergencyresponse.co.uk. Runs as the Cloudflare Worker `rap
 
 | Path | What it is |
 |---|---|
-| `public/index.html` | The whole home page (styles and script are inside it) |
+| `public/index.html` | The home page |
 | `public/privacy.html` | Privacy policy, served at `/privacy` |
+| `public/plumber-*.html` | One page per area (Batley, Morley…), served at `/plumber-morley` etc. |
+| `public/*-repair.html`, `emergency-plumber.html`, `sink-plumbing.html` | One page per service |
+| `public/styles.css` | Styles shared by every page |
+| `tools/build_pages.py` | Generates the area and service pages and `sitemap.xml`. Edit the wording there, then run `python3 tools/build_pages.py` |
 | `public/img/` | Photos and logo. Keep these file names: the page refers to them |
 | `public/robots.txt`, `public/sitemap.xml` | For Google |
 | `src/index.js` | Tiny Worker that sends `www.` and `http://` visitors to `https://rapidemergencyresponse.co.uk` |
