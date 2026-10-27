@@ -31,5 +31,4 @@ npx wrangler deploy
 
 - The contact form doesn't send anything to a server. It opens WhatsApp with the message filled in. That's deliberate: nothing to break, and no data stored.
 - The privacy page mentions Cloudflare Web Analytics. It's switched on in the Cloudflare dashboard, not in this code.
-- Ryan doesn't do boiler or gas work; the page says so under the services.
 - Rebuilt on 27 Oct 2026 from the version that was live, because the original files had been lost.
