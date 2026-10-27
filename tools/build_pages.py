@@ -20,6 +20,10 @@ REVIEWS = [
 ]
 
 AREAS = [
+    dict(slug="plumber-leeds", name="Leeds", pc="LS1 to LS28", review=1,
+         places=["Beeston", "Holbeck", "Hunslet", "Armley", "Bramley", "Farnley", "Wortley", "Kirkstall", "Headingley", "Roundhay", "Horsforth", "Rothwell"],
+         intro="Ryan covers all of Leeds, LS1 to LS28, day and night. South and west Leeds are the quickest to reach from his base in Batley, but a leak in Headingley or a blocked toilet in Roundhay gets the same call-out. One call gets you a qualified local plumber, not a national call centre.",
+         extra="Big firms often send whoever's free. With Rapid Emergency Response you get Ryan every time: City & Guilds qualified since 2002, DBS checked, with five-star Google reviews and the price agreed before any work starts. Leeds has a lot of older terraces and back-to-backs where pipework has been added to over the years, and Ryan traces the real cause rather than patching the symptom."),
     dict(slug="plumber-batley", name="Batley", pc="WF17", review=0,
          places=["Batley town centre", "Birstall", "Staincliffe", "Carlinghow", "Hanging Heaton", "Soothill", "Healey"],
          intro="Batley is home. Ryan is based on South Bank Road, so a call-out anywhere in WF17 is usually the quickest job of his day. If water is coming through a ceiling in Birstall or a toilet won't stop running in Staincliffe, you're talking to a plumber who lives just round the corner.",
@@ -40,10 +44,6 @@ AREAS = [
          places=["Calverley village", "Farsley"],
          intro="Ryan covers Calverley and the surrounding LS28 area for emergency call-outs and everyday plumbing repairs. Leaks traced and fixed, toilets and taps repaired or replaced, sinks and appliances plumbed in neatly.",
          extra="Calverley has a lot of older stone properties where pipework can be tucked away in awkward places. Ryan takes the time to find the real cause, explains it in plain English and agrees the price before starting."),
-    dict(slug="plumber-leeds", name="Leeds", pc="LS1 to LS28", review=1,
-         places=["Morley", "Beeston", "Bramley", "Armley", "Farnley", "Wortley", "Pudsey", "Holbeck"],
-         intro="Ryan covers Leeds, LS1 to LS28, with south and west Leeds being closest to his base in Batley. If you're dealing with a leak, a burst pipe, a broken toilet or a tap that won't stop, one call gets you a qualified local plumber, not a national call centre.",
-         extra="Big firms often send whoever's free. With Rapid Emergency Response you get Ryan every time: City & Guilds qualified since 2002, DBS checked, with five-star Google reviews and the price agreed before any work starts."),
 ]
 
 SERVICES = [
