@@ -1,0 +1,13 @@
+{
+  // Cloudflare Worker that serves Ryan's site. Same name as the live Worker,
+  // so deploying from here updates rapidemergencyresponse.co.uk.
+  "name": "rapid-emergency-response",
+  "main": "src/index.js",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "html_handling": "auto-trailing-slash",
+    "run_worker_first": true
+  }
+}
