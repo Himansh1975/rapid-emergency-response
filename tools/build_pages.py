@@ -156,7 +156,7 @@ NAV = _nav()
 HEADER = f"""<header class="top">
   <div class="wrap">
     <a class="brand" href="/">
-      <img src="img/logo.webp" alt="Rapid Emergency Response Plumbing Services logo" width="58" height="58">
+      <img src="img/logo.webp" alt="Rapid Emergency Response Plumbing logo" width="58" height="58">
       <div><b>Rapid</b><small>Emergency Response Plumbing</small></div>
     </a>
     <nav class="nav" aria-label="Main">
@@ -178,7 +178,7 @@ def footer():
     return f"""<footer>
   <div class="wrap">
     {footer_links()}
-    <div><img src="img/logo.webp" alt="" width="40" height="40" style="border-radius:6px;margin-bottom:8px"><b>Rapid Emergency Response Plumbing Services</b><br>Ryan Aubrey · South Bank Road, Batley<br>{PHONE} · Plumber247@mail.com</div>
+    <div><img src="img/logo.webp" alt="" width="40" height="40" style="border-radius:6px;margin-bottom:8px"><b>Rapid Emergency Response Plumbing</b><br>Ryan Aubrey · South Bank Road, Batley<br>{PHONE} · Plumber247@mail.com</div>
     <div><nav aria-label="Footer" style="display:flex;gap:16px"><a href="/#services">Services</a><a href="/#reviews">Reviews</a><a href="/#areas">Areas</a><a href="privacy">Privacy</a></nav><br>© 2026 Rapid Emergency Response</div>
   </div>
 </footer>
@@ -213,7 +213,7 @@ def faq_html(faqs):
 
 def business_ld(area_names, page_url):
     return {"@context": "https://schema.org", "@type": "Plumber", "@id": SITE + "/#business",
-            "name": "Rapid Emergency Response Plumbing Services", "url": SITE + "/", "telephone": PHONE_TEL,
+            "name": "Rapid Emergency Response Plumbing", "url": SITE + "/", "telephone": PHONE_TEL,
             "image": SITE + "/img/og.jpg",
             "address": {"@type": "PostalAddress", "streetAddress": "South Bank Road", "addressLocality": "Batley",
                         "addressRegion": "West Yorkshire", "postalCode": "WF17", "addressCountry": "GB"},
