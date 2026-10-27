@@ -184,7 +184,7 @@ def footer():
 </footer>
 
 <div class="callbar">
-  <a class="btn btn-red" href="tel:{PHONE_TEL}">Call now</a>
+  <a class="btn btn-red" href="tel:{PHONE_TEL}">Call now · 24/7</a>
   <a class="btn btn-ghost" href="{WA}" target="_blank" rel="noopener">WhatsApp</a>
 </div>
 </body>

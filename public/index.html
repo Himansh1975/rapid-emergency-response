@@ -270,23 +270,12 @@
       </div>
       <form id="waform">
         <h3>Send Ryan the details</h3>
-        <p class="lede" style="font-size:.95rem">This opens WhatsApp with your message ready to go. Just press send, and add a photo if you can.</p>
-        <div class="row2">
-          <label for="f-name">Your name<input id="f-name" name="name" autocomplete="name" required></label>
-          <label for="f-area">Area
-            <select id="f-area" name="area">
-              <option>Leeds</option><option>Morley</option><option>Drighlington</option><option>Pudsey</option><option>Calverley</option><option>Batley</option><option>Somewhere else</option>
-            </select>
-          </label>
-        </div>
-        <label for="f-job">Type of job
-          <select id="f-job" name="job">
-            <option>Leak or burst pipe</option><option>Tap repair or replacement</option><option>Toilet repair, blockage or replacement</option><option>Sink, waste or appliance</option><option>Other plumbing</option>
-          </select>
-        </label>
-        <label for="f-msg">What's happening?<textarea id="f-msg" name="msg" placeholder="e.g. Water dripping from the kitchen ceiling since this morning"></textarea></label>
-        <label class="urgent" for="f-urgent"><input type="checkbox" id="f-urgent" name="urgent"> This is an emergency</label>
-        <button class="btn btn-red" type="submit" style="justify-self:start">Send on WhatsApp</button>
+        <p class="lede" style="font-size:.95rem">Tap the problem, add your postcode, and WhatsApp opens with the message ready. Add a photo before you send.</p>
+        <fieldset class="pick"><legend>What's the problem?</legend><label><input type="radio" name="job" value="Leak or burst pipe" checked><span>Leak or burst pipe</span></label><label><input type="radio" name="job" value="Toilet"><span>Toilet</span></label><label><input type="radio" name="job" value="Tap"><span>Tap</span></label><label><input type="radio" name="job" value="Blocked sink or drain"><span>Blocked sink or drain</span></label><label><input type="radio" name="job" value="Appliance hook-up"><span>Appliance hook-up</span></label><label><input type="radio" name="job" value="Something else"><span>Something else</span></label></fieldset>
+        <label for="f-pc">Your postcode<input id="f-pc" name="pc" autocomplete="postal-code" placeholder="e.g. LS27 9AB" style="max-width:220px"></label>
+        <label for="f-msg">Anything else? <span style="font-weight:400;color:var(--muted)">(optional)</span><input id="f-msg" name="msg" placeholder="e.g. dripping from the kitchen ceiling"></label>
+        <button class="btn btn-red" type="submit" style="justify-self:start">Open WhatsApp</button>
+        <p class="form-note">Water pouring through right now? Don't type, <a href="tel:+447543599184">call 07543 599184</a>.</p>
       </form>
     </div>
   </section>
@@ -301,7 +290,7 @@
 </footer>
 
 <div class="callbar">
-  <a class="btn btn-red" href="tel:+447543599184">Call now</a>
+  <a class="btn btn-red" href="tel:+447543599184">Call now · 24/7</a>
   <a class="btn btn-ghost" href="https://wa.me/447543599184?text=Hi%20Ryan%2C%20I%20need%20a%20plumber.%20" target="_blank" rel="noopener">WhatsApp</a>
 </div>
 
@@ -316,7 +305,7 @@ document.querySelectorAll('.copy').forEach(function(b){
 function sel(b){var a=b.previousElementSibling;var r=document.createRange();r.selectNodeContents(a);var s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selected';}
 document.getElementById('waform').addEventListener('submit',function(e){
   e.preventDefault();var f=e.target;
-  var t=(f.urgent.checked?'EMERGENCY. ':'')+'Hi Ryan, it\'s '+f.name.value.trim()+' in '+f.area.value+'. Job: '+f.job.value+'.'+(f.msg.value.trim()?' '+f.msg.value.trim():'');
+  var t='Hi Ryan, I need a plumber. Problem: '+f.job.value+'.'+(f.pc.value.trim()?' Postcode: '+f.pc.value.trim().toUpperCase()+'.':'')+(f.msg.value.trim()?' '+f.msg.value.trim():'');
   window.open('https://wa.me/447543599184?text='+encodeURIComponent(t),'_blank','noopener');
 });
 </script>
