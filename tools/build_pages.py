@@ -21,6 +21,12 @@ REVIEWS = [
 
 AREAS = [
     dict(slug="plumber-leeds", name="Leeds", pc="LS1 to LS28", review=1,
+         pc_table=[("LS11", "Beeston, Holbeck"), ("LS12", "Armley, Farnley, Wortley"), ("LS13", "Bramley, Rodley"),
+                   ("LS10", "Hunslet, Middleton, Belle Isle"), ("LS27", "Morley, Gildersome, Churwell"), ("LS28", "Pudsey, Farsley, Calverley, Stanningley"),
+                   ("LS5", "Kirkstall"), ("LS6", "Headingley, Hyde Park"), ("LS8", "Roundhay, Harehills"), ("LS18", "Horsforth"),
+                   ("LS26", "Rothwell"), ("LS1, LS2", "City centre")],
+         faq_extra=[("Is there a plumber near me in Leeds right now?", "If you're anywhere in LS1 to LS28, yes. Ryan takes emergency call-outs across Leeds 24/7. Call 07543 599184 and he'll tell you honestly how soon he can be there."),
+                    ("Do you cover the city centre and flats?", "Yes, including flats and rented properties. Landlords and letting agents can call too.")],
          places=["Beeston", "Holbeck", "Hunslet", "Armley", "Bramley", "Farnley", "Wortley", "Kirkstall", "Headingley", "Roundhay", "Horsforth", "Rothwell"],
          intro="Ryan covers all of Leeds, LS1 to LS28, day and night. South and west Leeds are the quickest to reach from his base in Batley, but a leak in Headingley or a blocked toilet in Roundhay gets the same call-out. One call gets you a qualified local plumber, not a national call centre.",
          extra="Big firms often send whoever's free. With Rapid Emergency Response you get Ryan every time: City & Guilds qualified since 2002, DBS checked, with five-star Google reviews and the price agreed before any work starts. Leeds has a lot of older terraces and back-to-backs where pipework has been added to over the years, and Ryan traces the real cause rather than patching the symptom."),
@@ -228,12 +234,21 @@ def crumbs_ld(name, path):
         {"@type": "ListItem", "position": 2, "name": name, "item": SITE + "/" + path}]}
 
 
+def pc_table_html(a):
+    if "pc_table" not in a:
+        return ""
+    rows = "".join(f"<tr><th scope=\"row\">{pc}</th><td>{escape(places)}</td></tr>" for pc, places in a["pc_table"])
+    return f"""<h2>Leeds postcodes Ryan covers</h2>
+        <table class="pc-table"><thead><tr><th>Postcode</th><th>Areas</th></tr></thead><tbody>{rows}</tbody></table>
+        <p class="note">Plus every other LS postcode from LS1 to LS28. Not listed? <a href="tel:{PHONE_TEL}">Call and ask.</a></p>"""
+
+
 def area_page(a):
     path, name = a["slug"], a["name"]
     title = f"Plumber in {name} {a['pc'] if name != 'Leeds' else ''} | Rapid Emergency Response".replace("  ", " ")
     desc = f"24/7 local plumber in {name}, {a['pc']}. Ryan Aubrey, City & Guilds qualified and DBS checked, fixes leaks, burst pipes, toilets and taps. Price agreed first. Call {PHONE}."
     common = [("Do you cover " + p + "?", f"Yes. {p} is part of the {name} area Ryan covers as standard.") for p in a["places"][1:2]]
-    faqs = common + [
+    faqs = a.get("faq_extra", []) + common + [
         (f"How quickly can you get to {name}?", f"It depends on what Ryan is already working on, so call and he'll give you an honest time. {name} is a short drive from his base in Batley."),
         ("Do you come out at night and at weekends?", f"Yes. Ryan takes emergency call-outs in {name} 24 hours a day, 7 days a week."),
         ("Is the price agreed before you start?", "Yes, always. Ryan explains what's wrong and agrees the price with you before any work starts."),
@@ -257,6 +272,7 @@ def area_page(a):
         <ul class="chips">{places}</ul>
         <p class="note">Postcode {a['pc']}. Just outside? <a href="tel:{PHONE_TEL}">Call anyway and ask.</a></p>
 
+        {pc_table_html(a)}
         <h2>What Ryan fixes in {name}</h2>
         <ul class="link-grid">{svc_links}</ul>
 
