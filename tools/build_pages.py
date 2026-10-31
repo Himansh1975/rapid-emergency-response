@@ -363,4 +363,6 @@ if __name__ == "__main__":
     for s in SERVICES:
         (OUT / f"{s['slug']}.html").write_text(service_page(s), encoding="utf-8")
     (OUT / "sitemap.xml").write_text(sitemap(), encoding="utf-8")
+    # Same list under a fresh name, so Search Console fetches it anew instead of reusing a stale error.
+    (OUT / "sitemap-pages.xml").write_text(sitemap(), encoding="utf-8")
     print(f"Built {len(AREAS)} area pages, {len(SERVICES)} service pages and sitemap.xml")
